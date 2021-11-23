@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   linkContent: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: "700",
     color: "#006eff",
     textDecoration: "none",
@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   typContent: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: "700",
     color: "#414141",
     textDecoration: "none",
-    marginTop: 25,
+    marginTop: 20,
   },
 }));
 

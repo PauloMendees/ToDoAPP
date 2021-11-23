@@ -15,6 +15,14 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "underline",
     },
   },
+
+  boxLink: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexGrow: 1,
+  },
 }));
 
 export default function TopBar() {
@@ -27,7 +35,7 @@ export default function TopBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ paddingTop: 1, paddingBottom: 1 }}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"
@@ -47,16 +55,8 @@ export default function TopBar() {
               TodoAPP
             </Typography>
           </Box>
-          <Box sx={{ flexGrow: 6 }} />
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-around",
-              flexGrow: 1,
-            }}
-          >
+          <Box sx={{ flexGrow: 15 }} />
+          <Box className={classes.boxLink}>
             <Link to="/ToDo" className={classes.linkContent}>
               <Typography variant="body1">ToDo</Typography>
             </Link>
