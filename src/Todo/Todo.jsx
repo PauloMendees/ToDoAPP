@@ -7,12 +7,9 @@ import TodoList from "../Component/TodoList/TodoList";
 
 const useStyles = makeStyles((theme) => ({
   boxContent: {
-    display: "column",
-    paddingLeft: 50,
-    paddingRight: 50,
-    paddingTop: 25,
-    backgroundColor: "#f3f3f3",
-    minHeight: "94vh",
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
   },
 }));
 

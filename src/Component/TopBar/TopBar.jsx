@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar() {
+export default function TopBar({ handleDrawerToggle }) {
   const classes = useStyles();
   const [mobileActive, setMobileActive] = useState(false);
 
@@ -34,38 +34,37 @@ export default function TopBar() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ paddingTop: 1, paddingBottom: 1 }}>
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={(event) => {
-              event.preventDefault();
-              handleButton();
-            }}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <AssignmentIcon />
-            <Typography variant="h5" sx={{ marginLeft: 1 }}>
-              TodoAPP
-            </Typography>
-          </Box>
-          <Box sx={{ flexGrow: 15 }} />
-          <Box className={classes.boxLink}>
-            <Link to="/ToDo" className={classes.linkContent}>
-              <Typography variant="body1">ToDo</Typography>
-            </Link>
-            <Link to="/sobre" className={classes.linkContent}>
-              <Typography variant="body1">Sobre</Typography>
-            </Link>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <AppBar
+      position="fixed"
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    >
+      <Toolbar variant="dense">
+        <IconButton
+          color="inherit"
+          edge="start"
+          onClick={(event) => {
+            handleDrawerToggle();
+          }}
+          sx={{ mr: 2, display: { sm: "block" } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <AssignmentIcon />
+          <Typography variant="h5" sx={{ marginLeft: 1 }}>
+            TodoAPP
+          </Typography>
+        </Box>
+        <Box sx={{ flexGrow: 15 }} />
+        <Box className={classes.boxLink}>
+          <Link to="/ToDo" className={classes.linkContent}>
+            <Typography variant="body1">ToDo</Typography>
+          </Link>
+          <Link to="/sobre" className={classes.linkContent}>
+            <Typography variant="body1">Sobre</Typography>
+          </Link>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }
